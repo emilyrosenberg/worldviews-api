@@ -59,7 +59,7 @@ SECRET_KEY = 'django-insecure-6wb#ip0z2!i%o*pqxqwu4wmwrn)l_y!dnzo_k=#f*@%ttv2e!o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'https://worldviews-api-48c7a84b222a.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost', 'worldviews-api-48c7a84b222a.herokuapp.com/']
 
 
 # Application definition
