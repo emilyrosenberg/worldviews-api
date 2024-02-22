@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import re
 import dj_database_url
+from corsheaders.defaults import default_headers, default_methods
 
 if os.path.exists('env.py'):
     import env
@@ -81,7 +82,11 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
+# from PP5 slack channel
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = list(default_headers)
+CORS_ALLOW_METHODS = list(default_methods)
+CSRF_TRUSTED_ORIGINS = [os.environ.get('CLIENT_ORIGIN_DEV', 'CLIENT_ORIGIN',)]
 
 # Application definition
 
