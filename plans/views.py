@@ -1,5 +1,6 @@
 # from django.db.models import Count
-from rest_framework import generics, status, permissions
+from rest_framework import generics, status, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from drf_api.permissions import IsOwnerOrReadOnly
@@ -16,6 +17,20 @@ class PlanList(APIView):
         # likes_count=Count('likes', distinct=True),
         # comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
+
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+
+    search_fields = [
+        'owner__username',
+        'title',
+    ]
+    # ordering_fields = [
+    #     'comments_count',
+    # ]
 
     def get(self, request):
         plans = Plan.objects.all()
