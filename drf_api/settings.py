@@ -80,16 +80,16 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
-    
-# 
 # from PP5 slack channel
 CORS_ALLOW_CREDENTIALS = True
 # CORS_ALLOW_HEADERS = list(default_headers)
 # CORS_ALLOW_METHODS = list(default_methods)
-# CSRF_TRUSTED_ORIGINS = [os.environ.get('CLIENT_ORIGIN_DEV', 'CLIENT_ORIGIN',)]
+# CSRF_TRUSTED_ORIGINS = [
+#   os.environ.get('CLIENT_ORIGIN_DEV',
+#   'CLIENT_ORIGIN',)
+# ]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -115,6 +115,7 @@ INSTALLED_APPS = [
     'comments',
     'likes',
     'followers',
+    'plans',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
