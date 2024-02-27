@@ -67,3 +67,10 @@ class PlanDetail(generics.RetrieveUpdateDestroyAPIView):
         # likes_count=Count('likes', distinct=True),
         # comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
+
+    def delete(self, request, pk):
+        plan = self.get.object(pk)
+        plan.delete()
+        return Response(
+            status=status.HTTP_204_NO_CONTENT
+        )
