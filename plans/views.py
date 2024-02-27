@@ -1,14 +1,16 @@
 # from django.db.models import Count
-from rest_framework import generics, status, permissions, filters
+from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Plan
 from .serializers import PlanSerializer
 
 
-class PlanList(APIView):
+class PlanList(generics.ListCreateAPIView):
+    """
+    List plan or create a plan if logged in
+    The perform_create method associates the plan with the logged in user.
+    """
     serializer_class = PlanSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
@@ -32,34 +34,13 @@ class PlanList(APIView):
     #     'comments_count',
     # ]
 
-    def get(self, request):
-        plans = Plan.objects.all()
-        serializer = PlanSerializer(
-            plans,
-            many=True,
-            context={'request': request}
-        )
-        return Response(serializer.data)
-
-
-def plan(self, request):
-    serializer = PlanSerializer(
-        data=request.data, context={'request': request}
-    )
-    if serializer.is_valid():
-        serializer.save(owner=request.user)
-        return Response(
-            serializer.data, status=status.HTTP_201_CREATED
-        )
-
-    return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST
-    )
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
 class PlanDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrieve a post and edit or delete it if you own it.
+    Retrieve a plan and edit or delete it if you own it.
     """
     serializer_class = PlanSerializer
     permission_classes = [IsOwnerOrReadOnly]
@@ -67,10 +48,3 @@ class PlanDetail(generics.RetrieveUpdateDestroyAPIView):
         # likes_count=Count('likes', distinct=True),
         # comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
-
-    def delete(self, request, pk):
-        plan = self.get.object(pk)
-        plan.delete()
-        return Response(
-            status=status.HTTP_204_NO_CONTENT
-        )
