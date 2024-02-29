@@ -116,6 +116,7 @@ INSTALLED_APPS = [
     'likes',
     'followers',
     'plans',
+    'plan_comments',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
