@@ -36,6 +36,6 @@ class PlanCommentSerializer(serializers.ModelSerializer):
 class PlanCommentDetailSerializer(PlanCommentSerializer):
     """
     Serializer for the PlanComment model used in Detail view
-    Post is a read only field so that we dont have to set it on each update
+    Plan is a read only field so that we dont have to set it on each update
     """
-    post = serializers.ReadOnlyField(source='post.id')
+    plan = serializers.ReadOnlyField(source='plan.id')

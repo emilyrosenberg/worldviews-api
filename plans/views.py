@@ -1,4 +1,4 @@
-# from django.db.models import Count
+from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_api.permissions import IsOwnerOrReadOnly
@@ -16,8 +16,7 @@ class PlanList(generics.ListCreateAPIView):
         permissions.IsAuthenticatedOrReadOnly
     ]
     queryset = Plan.objects.annotate(
-        # likes_count=Count('likes', distinct=True),
-        # comments_count=Count('comment', distinct=True)
+        plan_comments_count=Count('plancomment', distinct=True)
     ).order_by('-created_at')
 
     filter_backends = [
@@ -30,9 +29,9 @@ class PlanList(generics.ListCreateAPIView):
         'owner__username',
         'title',
     ]
-    # ordering_fields = [
-    #     'comments_count',
-    # ]
+    ordering_fields = [
+        'plan_comments_count',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -45,6 +44,5 @@ class PlanDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PlanSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Plan.objects.annotate(
-        # likes_count=Count('likes', distinct=True),
-        # comments_count=Count('comment', distinct=True)
+        plan_comments_count=Count('plancomment', distinct=True)
     ).order_by('-created_at')
