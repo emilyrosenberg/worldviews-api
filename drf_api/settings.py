@@ -67,7 +67,7 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
     '127.0.0.1',
-    '8000-emilyrosenb-worldviewsa-w2kyd9kyuvk.ws-eu108.gitpod.io'
+    '8000-emilyrosenb-worldviewsa-w2kyd9kyuvk.ws-eu108.gitpod.io',
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
@@ -158,7 +158,7 @@ DATABASES = {
     'default': ({
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    } if 'DEV' in os.environ else dj_database_url.parse(
+    } if 'DEV_DB' in os.environ else dj_database_url.parse(
         os.environ.get('DATABASE_URL')
     ))
 }
