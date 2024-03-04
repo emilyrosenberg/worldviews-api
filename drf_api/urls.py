@@ -36,5 +36,5 @@ urlpatterns = [
     path("", include("followers.urls")),
     path("", include("plans.urls")),
     path("", include("plan_comments.urls")),
-    # path("", include("locations.urls")),
+    path("", include("locations.urls")),
 ]
