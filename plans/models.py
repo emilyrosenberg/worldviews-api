@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-# from locations.models import Location
+from locations.models import Location
 
 
 class Plan(models.Model):
@@ -12,9 +12,9 @@ class Plan(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
-    # location = models.ForeignKey(
-    #     Location, on_delete=models.CASCADE,
-    # )
+    location = models.ForeignKey(
+        Location, on_delete=models.CASCADE, default="1"
+    )
 
     class Meta:
         ordering = ["-created_at"]
