@@ -28,7 +28,7 @@ class PlanList(generics.ListCreateAPIView):
     search_fields = [
         'owner__username',
         'title',
-        'location',
+        'location__name',
     ]
     ordering_fields = [
         'plan_comments_count',
