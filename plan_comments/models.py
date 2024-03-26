@@ -7,6 +7,7 @@ class PlanComment(models.Model):
     """
     PlanComment model, related to User and Plan
     """
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -14,7 +15,7 @@ class PlanComment(models.Model):
     content = models.TextField()
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
 
     def __str__(self):
         return self.content

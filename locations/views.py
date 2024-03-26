@@ -8,8 +8,9 @@ class LocationList(generics.ListCreateAPIView):
     """
     Location
     """
+
     serializer_class = LocationSerializer
-    queryset = Location.objects.annotate().order_by('name')
+    queryset = Location.objects.annotate().order_by("name")
 
     filter_backends = [
         filters.OrderingFilter,
@@ -18,10 +19,10 @@ class LocationList(generics.ListCreateAPIView):
     ]
 
     search_fields = [
-        'name',
+        "name",
     ]
     ordering_fields = [
-        'name',
+        "name",
     ]
 
     def perform_create(self, serializer):

@@ -11,13 +11,12 @@ class PlanList(generics.ListCreateAPIView):
     List plan or create a plan if logged in
     The perform_create method associates the plan with the logged in user.
     """
+
     serializer_class = PlanSerializer
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly
-    ]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Plan.objects.annotate(
-        plan_comments_count=Count('plancomment', distinct=True)
-    ).order_by('-created_at')
+        plan_comments_count=Count("plancomment", distinct=True)
+    ).order_by("-created_at")
 
     filter_backends = [
         filters.OrderingFilter,
@@ -26,12 +25,12 @@ class PlanList(generics.ListCreateAPIView):
     ]
 
     search_fields = [
-        'owner__username',
-        'title',
-        'location__name',
+        "owner__username",
+        "title",
+        "location__name",
     ]
     ordering_fields = [
-        'plan_comments_count',
+        "plan_comments_count",
     ]
 
     def perform_create(self, serializer):
@@ -42,8 +41,9 @@ class PlanDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve a plan and edit or delete it if you own it.
     """
+
     serializer_class = PlanSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Plan.objects.annotate(
-        plan_comments_count=Count('plancomment', distinct=True)
-    ).order_by('-created_at')
+        plan_comments_count=Count("plancomment", distinct=True)
+    ).order_by("-created_at")
