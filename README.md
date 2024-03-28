@@ -13,7 +13,6 @@ The live frontend site can be visited [here](https://worldviews-162453e10c7f.her
 
 Entity relationship diagram created with [LucidChart](https://www.lucidchart.com/pages/).
 
-
 ## Table of contents
 - [Intro](#worldviews-backend)
 - [Table of contents](#table-of-contents)
@@ -25,9 +24,9 @@ Entity relationship diagram created with [LucidChart](https://www.lucidchart.com
 - [Credits](#credits)
 
 ## Apps
-The program has 9 apps
+The backend was created with 9 interconnected apps.
 ### Main app (drf_api)
-This is the main app, with settings, URL paths, and authorization.
+This is the main app, which includes settings, URL paths, and authorization.
 ### Profiles
 This app is for user profiles. The user can add a username, profile picture (avatar), and a bio.
 ### Followers
@@ -53,7 +52,20 @@ Please see the [frontend readme](hhttps://github.com/emilyrosenberg/worldviews/b
 
 ## Testing
 ### Manual testing
-### Testing URLs
+CRUD functionality was tested manually across the site.
+
+<div align="left">
+  <img src="assets/readme_images/manual-testing.png" alt="Manual testing diagram" width="350">
+</div>
+
+### URLs Testing
+All links were tested manually.
+
+<div align="left">
+  <img src="assets/readme_images/urls-testing.png" alt="URLs testing diagram" width="150">
+</div>
+
+_Thanks to [Jody Murray's PetFriends-API](https://github.com/JodyMurray/my-api?tab=readme-ov-file#manual-testing) for inspiration about testing documentation._
 
 ## Technologies Used
 ### Languages, libraries, and software
