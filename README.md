@@ -68,32 +68,23 @@ All links were tested manually.
 _Thanks to [Jody Murray's PetFriends-API](https://github.com/JodyMurray/my-api?tab=readme-ov-file#manual-testing) for inspiration about testing documentation._
 
 ## Technologies Used
-### Languages, libraries, and software
-- asgiref
-- black
-- click
-- cloudinary
-- cryptography
-- dj-database-url
-- dj-rest-auth
+### Languages
+- Python
 - Django
-- django-allauth
-- django-cloudinary-storage
-- django-cors-headers
-- django-filter
-- djangorestframework
-- djangorestframework-simplejwt
-- gunicorn
-- oauthlib
-- pathspec
-- pillow
-- psycopg2-binary
-- PyJWT
-- python3-openid
-- ytz
-- requests-oauthlib
-- sqlparse
-- urllib3
+- Django Rest Framework
+
+### Libraries, frameworks, and programs
+- Django rest framework
+- Django rest auth
+- Django cors headers
+- Django filters
+- PostgreSQL (database hosting)
+- Cloudinary storage (image hosting)
+- Pillow (to modify images)
+- Black (code formatter)
+- LucidChart (to create diagrams)
+
+Please see the [frontend readme](https://github.com/emilyrosenberg/worldviews/blob/main/README.md#languages-libraries-and-software) for other technologies used in this project.
 
 ## Deployment
 
