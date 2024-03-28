@@ -87,6 +87,27 @@ _Thanks to [Jody Murray's PetFriends-API](https://github.com/JodyMurray/my-api?t
 Please see the [frontend readme](https://github.com/emilyrosenberg/worldviews/blob/main/README.md#languages-libraries-and-software) for other technologies used in this project.
 
 ## Deployment
+I used the [DRF Cheat Sheet](https://docs.google.com/document/d/1v8mOyB5l7aSL5loy3MVIX4z4SsLYKe-ZEGGpT_Z5DRM/edit?pli=1#heading=h.7xtx0jslcwbv) from the walkthrough to deploy this project.
+
+- Add Django rest auth library and rest framework’s authtoken
+  - Install the dj-rest-auth package in the terminal `pip install dj-rest-auth==2.1.9`
+  - Add `'rest_framework.authtoken'` and `'dj_rest_auth'` to INSTALLED APPS in drf_api / settings.py
+  - Add the urls `path('dj-rest-auth/', include('dj_rest_auth.urls'))` to the urlpatterns list in drf_api / urls.py
+  - Migrate the database in the terminal `python manage.py migrate`
+  
+- Add the feature to register users
+  - Install Django all-Auth in the terminal `pip install 'dj-rest-auth[with_social]'`
+  - Add the relevant apps to INSTALLED APPS in drf_api / settings.py `'django.contrib.sites', 'allauth', 'allauth.account', 'allauth.socialaccount', 'dj_rest_auth.registration',`
+  - Add SITE_ID value (place under INSTALLED APPS List) `SITE_ID = 1`
+  - Add the registration urls to the urlpatterns list in drf_api / urls.py `path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),`
+
+- Add JWT tokens functionality 
+
+
+
+
+
+
 
 ## Credits
 This project was based on the Code Institute Django REST Framework walkthrough. Please see the frontend readme for [other credits](https://github.com/emilyrosenberg/worldviews/blob/main/README.md#credits)!
