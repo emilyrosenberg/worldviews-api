@@ -35,14 +35,6 @@ REST_FRAMEWORK = {
         )
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-
-    """
-    Note: The large page size causes longer loading times and
-    it was a fix to make all locations show in the location
-    dropdown. It will be fixed by removing pagination from
-    that feature. Please find more info in the readme.
-    """
-
     "PAGE_SIZE": 50,
     "DATETIME_FORMAT": "%d %b %Y",
 }
