@@ -22,6 +22,7 @@ if os.path.exists("env.py"):
 CLOUDINARY_STORAGE = {"CLOUDINARY_URL": os.environ.get("CLOUDINARY_URL")}
 MEDIA_URL = "/media/"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,6 +35,14 @@ REST_FRAMEWORK = {
         )
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+
+    """
+    Note: The large page size causes longer loading times and
+    it was a fix to make all locations show in the location
+    dropdown. It will be fixed by removing pagination from
+    that feature. Please find more info in the readme.
+    """
+
     "PAGE_SIZE": 50,
     "DATETIME_FORMAT": "%d %b %Y",
 }
@@ -59,7 +68,6 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = "DEBUG" in os.environ
 
 ALLOWED_HOSTS = [
@@ -81,12 +89,6 @@ if "CLIENT_ORIGIN_DEV" in os.environ:
     ]
 # from PP5 slack channel
 CORS_ALLOW_CREDENTIALS = True
-# CORS_ALLOW_HEADERS = list(default_headers)
-# CORS_ALLOW_METHODS = list(default_methods)
-# CSRF_TRUSTED_ORIGINS = [
-#   os.environ.get('CLIENT_ORIGIN_DEV',
-#   'CLIENT_ORIGIN',)
-# ]
 
 # Application definition
 INSTALLED_APPS = [
@@ -164,6 +166,7 @@ DATABASES = {
     )
 }
 
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -201,6 +204,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

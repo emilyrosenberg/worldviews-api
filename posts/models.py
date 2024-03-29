@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# from locations.models import Location
-
 
 class Post(models.Model):
     """
@@ -37,9 +35,6 @@ class Post(models.Model):
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default="normal"
     )
-    # location = models.ForeignKey(
-    #     Location, on_delete=models.CASCADE,
-    # )
 
     class Meta:
         ordering = ["-created_at"]

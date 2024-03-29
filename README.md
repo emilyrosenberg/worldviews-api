@@ -46,9 +46,9 @@ This app is for choosing a location when creating a plan.
 
 ## Development
 ### User Stories
-Please see the [kanban board](https://github.com/users/emilyrosenberg/projects/7/views/1). 
+Please see the [frontend readme](https://github.com/emilyrosenberg/worldviews/blob/main/README.md#user-personas) and the [kanban board](https://github.com/users/emilyrosenberg/projects/7/views/1) for more information about user personas and user stories. 
 ### Bugs
-Please see the [frontend readme](hhttps://github.com/emilyrosenberg/worldviews/blob/main/README.md#bugs).
+Please see the [frontend readme](hhttps://github.com/emilyrosenberg/worldviews/blob/main/README.md#bugs) for documentation of bugs and bug fixes for this project.
 
 ## Testing
 ### Manual testing
@@ -65,7 +65,7 @@ All links were tested manually.
   <img src="assets/readme_images/urls-testing.png" alt="URLs testing diagram" width="150">
 </div>
 
-_Thanks to [Jody Murray's PetFriends-API](https://github.com/JodyMurray/my-api?tab=readme-ov-file#manual-testing) for inspiration about testing documentation._
+_Thanks to [Jody Murray's PetFriends-API](https://github.com/JodyMurray/my-api?tab=readme-ov-file#manual-testing) for inspiration about documenting testing._
 
 ## Technologies Used
 ### Languages
@@ -256,7 +256,7 @@ Create the Heroku App with Heroku PostGres
   - Add, commit, and push to Github
 
 -  Connect the project’s Github repo to Heroku
-    - Open the Deploy tab
+    - Log into the porject in Heroku and open the Deploy tab
     - Select Github as the deployment method
     - Confirm you want to connect to GitHub
     - Search for the repository name and click the connect button
