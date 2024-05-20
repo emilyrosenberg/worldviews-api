@@ -67,6 +67,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "8000-emilyrosenb-worldviewsa-w2kyd9kyuvk.ws-eu108.gitpod.io",
+    "8000-emilyrosenb-worldviewsa-w2kyd9kyuvk.ws-eu111.gitpod.io"
 ]
 
 if "CLIENT_ORIGIN" in os.environ:
